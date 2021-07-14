@@ -3,72 +3,47 @@
 /*Ax-C v1.0.0*/
 /*21-07-14*/
 html, body {
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
 }
-.MainHeader{
-    width:100vw;
+
+.MainHeader {
+    width: 100vw;
     display: flex;
     height: 100vh;
-    /*background-image: linear-gradient(to right top, #00a36d, #00b478, #00c483, #00d68f, #00e79a, #2defa6, #43f7b1, #55ffbd, #74ffca, #8effd6, #a7ffe0, #beffe9);*/
+    background-color: rgba(209, 204, 192, 0.39);
 }
 
 /*----------------------------Left Pane----------------------------*/
-.LeftPane{
+.LeftPane {
     width: 50%;
     height: 100vh;
     /*background-color: #00ffb0;*/
 }
-.leftMiniPane{
-    width: 500px;
-    height: 500px;
-    margin-top:120px;
-    margin-left: 268px;
-    /*background-color: #4b4b4b;*/
-    border: 1px solid black;
-}
-
-
-
-
-/*----------------------------Right Pane----------------------------*/
-.RightPane{
-    width: 50%;
-    height: 100vh;
-    /*background-color: #00ff66;*/
-}
-.rightMiniPane{
+.leftMiniPane {
     width: 500px;
     height: 500px;
     margin-top: 120px;
-    margin-right: 260px;
-    /*background-color: #000000;*/
-    border: 1px solid black;
+    margin-left: 268px;
 }
-/*.titleName{*/
-/*    color: #00e298;*/
-/*    margin-left: 200px;*/
-/*    margin-top: 40px;*/
-/*}*/
-.Logo{
+.Logo {
     width: 150px;
     height: 150px;
     margin-left: 165px;
-    position: absolute;
-    top:170px;
+    margin-top: 20px;
 }
-.inputUserName{
+.inputUserName {
     border-radius: 10px;
     border: 2px solid #1dd1a1;
     outline: transparent;
     background-color: transparent;
     padding: 10px 10px;
     width: 60%;
-    margin-top: 200px;
+    margin-top: 10px;
     margin-left: 100px;
 }
-.inputChatId{
+.inputChatId {
     border-radius: 10px;
     border: 2px solid #1dd1a1;
     outline: transparent;
@@ -78,25 +53,41 @@ html, body {
     margin-top: 20px;
     margin-left: 100px;
 }
-.button{
+.button {
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid #00ffaa;
+    border: 2px solid #1dd1a1;
     background-color: transparent;
-    /*background: #2979FF;*/
     padding: 5px;
     margin-top: 40px;
     border-radius: 20px;
-    /*display: inline-block;*/
     width: 50%;
     margin-left: 130px;
     height: 40px;
-    color: #00ffaa;
+    color: #1dd1a1;
     cursor: pointer;
 }
-.button:hover{
-    background-color: #00ffaa;
+.button:hover {
+    background-color: #1dd1a1;
     border-color: transparent;
     color: white;
     cursor: pointer;
+}
+
+/*----------------------------Right Pane----------------------------*/
+.RightPane {
+    width: 50%;
+    height: 100vh;
+    /*background-color: #00ff66;*/
+}
+.rightMiniPane {
+    width: 500px;
+    height: 500px;
+    margin-top: 120px;
+    margin-right: 260px;
+}
+.LoginImage {
+    width: 500px;
+    height: 440px;
+    margin-top: 12px;
 }
