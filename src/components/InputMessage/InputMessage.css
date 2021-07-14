@@ -1,0 +1,36 @@
+.InputMessageForm {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.txtInput {
+    border: none;
+    width: 95%;
+    height: 10%;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 1.2em;
+    outline: none;
+}
+
+.btnSend {
+    color: #1dd1a1;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+    padding: 20px;
+    display: inline-block;
+    width: 20%;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid #1dd1a1;
+}
+.btnSend:hover{
+    background-color: #1dd1a1;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

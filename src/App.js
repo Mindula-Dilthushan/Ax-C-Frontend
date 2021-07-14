@@ -7,12 +7,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 //Components
-import JoinClient from './components/JoinClient/JoinClient';
+// import SignIn from './components/SignIn/SignIn';
+import Chat from './components/Chat/Chat';
 
 const App = () => {
   return(
       <Router>
-        <Route path="/" exact component={JoinClient} />
+        <Route path="/axc" exact component={Chat} />
       </Router>
   )
 }

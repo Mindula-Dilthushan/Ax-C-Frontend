@@ -1,0 +1,21 @@
+.header-Top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1dd1a1;
+    border-radius: 20px 20px 0 0;
+    height: 60px;
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.ChatId{
+    color: white;
+    margin-left: 10px;
+}
+.btnExit{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    margin-top: 2px;
+}

@@ -8,9 +8,9 @@ import logo from './assets/Logo.png';
 import logingImage from './assets/Image.jpg';
 
 //StyleSheet
-import './JoinClient.css';
+import './SignIn.css';
 
-const JoinClient = () => {
+const SignIn = () => {
 
     const [username, setUserName] = useState('');
     const [chatId, setChatId] = useState('');
@@ -49,4 +49,4 @@ const JoinClient = () => {
         </div>
     )
 }
-export default JoinClient;
+export default SignIn;
