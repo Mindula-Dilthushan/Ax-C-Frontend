@@ -1,34 +1,29 @@
-//Alpha X Software Company
-//Mindula Dilthushan
-//Ax-C v1.0.0
-//21-07-14
+import React from 'react';
+import './Message.css';
 
-import React from "react";
 import ReactEmoji from 'react-emoji';
 
-//StyleSheets
-import './SendMessage.css';
+const Message = ({message: { user, text}, name}) => {
+    let isSendByCurrentUser = false;
 
-const SendMessage = ({
-    message: {user,text}, username}) => {
+    const trimmedName = name.trim().toLowerCase();
 
-    let sendByUser = false;
-
-    const trimUserName = username.trim().toLowerCase();
-
-    if(user === trimUserName){
-        sendByUser = true;
+    if(user === trimmedName){
+        isSendByCurrentUser = true;
     }
 
     return(
-        sendByUser ? (
+
+        isSendByCurrentUser
+        ? (
             <div className="messageContainer justifyEnd">
-                <p className="sentText pr-10">{trimUserName}</p>
+                <p className="sentText pr-10">{trimmedName}</p>
                 <div className="messageBox backgroundBlue">
                     <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
                 </div>
             </div>
-        ) : (
+        )
+        : (
             <div className="messageContainer justifyEnd">
                 <div className="messageBox backgroundLight">
                     <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
@@ -38,6 +33,6 @@ const SendMessage = ({
         )
 
     )
-
 }
-export default SendMessage;
+
+export default Message;

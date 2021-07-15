@@ -1,67 +1,64 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
-
-//StylesSheets
+import InfoBar from '../InfoBar/InfoBar';
+import Input from '../Input/Input';
 import './Chat.css';
-
-//Components
-import Header from "../Header/Header";
-import InputMessage from "../InputMessage/InputMessage";
-import MessageArea from "../MessageArea/MessageArea";
+import Messages from '../Messages/Messages';
 
 let socket;
 
-const Chat = ({location}) => {
+ const Chat = ({ location }) => {
 
-    const [username, setUserName] = useState('');
-    const [chatId, setChatId] = useState('');
-    const [sendMessage, setSendMessage] = useState('');
-    const [messageArea, setMessageArea] = useState([]);
-    const EXIT = 'localhost:8000';
+    const [name, setName] = useState('');
+    const [room, setRoom] = useState('');
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
+    const ENDPOINT = 'localhost:5000';
 
     useEffect(() => {
+        const { name, room } = queryString.parse(location.search);
 
-        const {username, chatId} = queryString.parse(location.search);
+        socket = io(ENDPOINT);
 
-        socket = io(EXIT)
+        setName(name);
+        setRoom(room); 
 
-        setUserName(username);
-        setChatId(chatId);
-
-        socket.emit('Join', {username, chatId}, () => {
-
+        socket.emit('join', { name, room }, () =>{
+           
         });
 
         return () => {
             socket.emit('disconnect');
             socket.off();
-        };
-    }, [EXIT, location.search]);
+        }
+    }, [ENDPOINT, location.search]);
 
-
-    useEffect(() => {
-        socket.on('message', (message) => {
-            setMessageArea([...messageArea, message]);
+    useEffect(() =>{
+        socket.on('message', (message) =>{
+            setMessages([...messages, message]);
         })
-    }, [messageArea]);
+    }, [messages]);
 
-    const sendToMessage = (event) => {
+    const sendMessage = (event) => {
         event.preventDefault();
-        if (sendMessage) {
-            socket.emit('SendMessage', sendMessage, () => setSendMessage(''));
+        if(message){
+            socket.emit('sendMessage', message, () => setMessage(''));
         }
     }
+
+    console.log(message, messages);
 
     return (
         <div className="ChatMainPane">
             <div className="container">
-                <Header chatId={chatId}/>
-                <MessageArea messages={messageArea} username={username}/>
-                <InputMessage message={sendMessage} setMessage={setSendMessage} sendMessage={sendToMessage}/>
+                <InfoBar room={room} />
+                <Messages messages={messages} name={name} />
+                <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
             </div>
+            
         </div>
     )
-}
+ }
 
-export default Chat;
+ export default Chat;
